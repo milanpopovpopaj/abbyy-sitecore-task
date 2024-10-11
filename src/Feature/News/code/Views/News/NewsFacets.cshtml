@@ -1,0 +1,21 @@
+﻿@using Sitecore.Mvc.Extensions
+@using Abbyy.Feature.News.Models
+
+@model IEnumerable<NewsFacet>
+
+<div class="left-column">
+    @foreach (var facet in Model)
+    {
+        <div class="facets">
+            <h4>@facet.Title</h4>
+            <div class="facet-list">
+                <ul>
+                    @foreach (var value in facet.Values)
+                    {
+                        <li>@value</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+</div>

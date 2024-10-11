@@ -1,0 +1,25 @@
+﻿@using Abbyy.Feature.News
+@model IEnumerable<Sitecore.Data.Items.Item>
+
+<ul class="news-listing">
+  @foreach (var newsItem in Model)
+  {
+    <li class="news-item">
+        <div class="news-title">
+            @Html.Sitecore().Field(Templates.NewsItem.Fields.Title, item)
+        </div>
+
+        <div class="news-date">
+            @Html.Sitecore().Field(Templates.NewsItem.Fields.PublishDate.ToString(), item, new { format = "MMMM dd, yyyy" })
+        </div>
+
+        <div>
+            @Html.Sitecore().Field(Templates.NewsItem.Fields.Category, item)
+        </div>
+
+        <div>
+            @Html.Sitecore().Field(Templates.NewsItem.Fields.Description, item)
+        </div>
+    </li>
+  }
+</ul>
